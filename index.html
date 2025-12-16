@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Сортировка массива</title>
+    <script>
+        window.onload = function() {
+            const h4 = document.getElementById('login');
+            const login = '408456';
+            h4.textContent = login;
+
+            const query = window.location.search.substring(1); // убираем "?"
+            try {
+                let arr = JSON.parse(query);
+                if (Array.isArray(arr)) {
+                    arr.sort((a,b) => a-b);
+                    document.title = arr.toString();
+                } else {
+                    document.title = 'Некорректный массив';
+                }
+            } catch(e) {
+                document.title = 'Ошибка разбора массива';
+            }
+        }
+    </script>
+</head>
+<body>
+    <h4 id="login"></h4>
+</body>
+</html>
